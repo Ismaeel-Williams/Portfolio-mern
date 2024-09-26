@@ -6,8 +6,8 @@ export default function Home() {
     <>
       <Navbar />
       <section className="bg-[#507687] p-2 font-semibold">
-        <div className="m-2">
-          <div className="bg-[#384B70] text-[#FCFAEE] w-full pl-5">
+        <div className="m-2 bg-[#384B70]">
+          <div className=" text-[#FCFAEE] w-full pl-5">
             <h1 className="text-8xl w-3/5 font-outline-2 hover:font-outline-4 mb-10">
               Landing Page
             </h1>
