@@ -8,7 +8,7 @@ export default function Home() {
       <section className="bg-[#507687] p-2 font-semibold">
         <div className="m-2 bg-[#384B70]">
           <div className=" text-[#FCFAEE] w-full pl-5">
-            <h1 className="text-8xl w-3/5 font-outline-2 hover:font-outline-4 mb-10">
+            <h1 className="text-8xl w-3/5 font-outline-2 hover:font-outline-4 mb-10 font-notoSans">
               Landing Page
             </h1>
             <p className="text-2xl">Ismaeel's Portfolio</p>

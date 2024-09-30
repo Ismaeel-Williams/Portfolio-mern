@@ -1,3 +1,4 @@
+import { Noto_Sans } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -11,6 +12,8 @@ const config: Config = {
       sans: ["ui-sans-serif", "system-ui"],
       serif: ["ui-serif", "Georgia"],
       mono: ["ui-monospace", "SFMono-Regular"],
+      roboto: ["var(--font-roboto)", "sans-serif"],
+      notoSans: ["var(--font-roboto)", "sans-serif"],
     },
     extend: {
       colors: {
