@@ -16,6 +16,9 @@ const config: Config = {
       notoSans: ["var(--font-roboto)", "sans-serif"],
     },
     extend: {
+      backgroundImage: {
+        "stars-img": "url('/public/images/bg-stars.jpg')",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
