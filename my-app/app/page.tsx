@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/footer";
 import { notoSans } from "@/app/layout";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         </div>
       </section>
       <a href="Page1">Page1 LINK</a>
+      <Footer />
     </>
   );
 }
