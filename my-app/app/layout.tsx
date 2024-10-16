@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto, Noto_Sans } from "next/font/google";
 
-const roboto = Roboto({
+export const roboto = Roboto({
+  // Export the font object
   subsets: ["latin"],
   weight: ["400", "700"],
 });
 
-const notoSans = Noto_Sans({
+export const notoSans = Noto_Sans({
+  // Export the font object
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -24,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} ${notoSans.className}`}>
-        {children}
-      </body>
+      <body className={roboto.className}>{children}</body>
     </html>
   );
 }

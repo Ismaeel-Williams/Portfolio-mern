@@ -12,12 +12,10 @@ const config: Config = {
       sans: ["ui-sans-serif", "system-ui"],
       serif: ["ui-serif", "Georgia"],
       mono: ["ui-monospace", "SFMono-Regular"],
-      roboto: ["var(--font-roboto)", "sans-serif"],
-      notoSans: ["var(--font-roboto)", "sans-serif"],
     },
     extend: {
       backgroundImage: {
-        "stars-img": "url('/public/images/bg-stars.jpg')",
+        "stars-img": "url('/images/stars.jpg')",
       },
       colors: {
         background: "var(--background)",
