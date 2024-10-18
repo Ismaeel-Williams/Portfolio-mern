@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Card from "@/components/card";
 import Footer from "@/components/footer";
 import { notoSans } from "@/app/layout";
 
@@ -21,7 +22,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <a href="Page1">Page1 LINK</a>
+      <section className="bg-[#507687]">
+        <div>
+          <Card />
+        </div>
+      </section>
       <Footer />
     </>
   );
