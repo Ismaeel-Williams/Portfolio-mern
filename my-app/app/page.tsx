@@ -25,7 +25,7 @@ export default function Home() {
       <section className="bg-[#507687] flex justify-center p-4">
         <div className="flex flex-wrap justify-center gap-4 w-full max-w-7xl">
           <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
-            <Card />
+            <Card title="Sign in Page" link="/SignInPage" />
           </div>
           <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
             <Card />
