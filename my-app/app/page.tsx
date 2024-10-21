@@ -24,16 +24,10 @@ export default function Home() {
       </section>
       <section className="bg-[#507687] flex justify-center p-4">
         <div className="flex flex-wrap justify-center gap-4 w-full max-w-7xl">
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full max-w-7xl">
             <Card title="Sign in Page" link="/SignInPage" />
-          </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
             <Card />
-          </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
             <Card />
-          </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
             <Card />
           </div>
         </div>
