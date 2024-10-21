@@ -3,13 +3,11 @@ import "./globals.css";
 import { Roboto, Noto_Sans } from "next/font/google";
 
 export const roboto = Roboto({
-  // Export the font object
   subsets: ["latin"],
   weight: ["400", "700"],
 });
 
 export const notoSans = Noto_Sans({
-  // Export the font object
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -26,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
