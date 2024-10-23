@@ -31,6 +31,7 @@ export default function Home() {
             <Card />
             <Card />
           </div>
+          <p className="font-bold">More Coming Soon ...</p>
         </div>
       </section>
     </>

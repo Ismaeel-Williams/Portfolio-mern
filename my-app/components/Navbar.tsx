@@ -69,7 +69,7 @@ export default function Navbar() {
                   Team
                 </a>
                 <a
-                  href="#Projects"
+                  href="/#Projects"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   Projects
