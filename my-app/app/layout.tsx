@@ -1,16 +1,5 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import { Roboto, Noto_Sans } from "next/font/google";
-
-export const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
-export const notoSans = Noto_Sans({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body>{children}</body>
