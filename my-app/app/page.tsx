@@ -25,6 +25,7 @@ export default function Home() {
             <Card
               title="Sign in Page"
               link="/SignInPage"
+              image="/images/sign-in-page.png"
               description="A simple sign in page with functionality"
             />
             <Card />
