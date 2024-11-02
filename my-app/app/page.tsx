@@ -4,10 +4,10 @@ export default function Home() {
   return (
     <>
       <section className="bg-[#507687] p-2 font-semibold">
-        <div className="relative m-2 bg-stars-img bg-cover bg-center h-full min-h-screen">
+        <div className="relative m-2 bg-stars-img bg-cover bg-center min-h-full">
           <div className="absolute inset-0 bg-black opacity-60"></div>
           <div className={`relative text-[#FCFAEE] w-full px-10 py-10`}>
-            <h1 className="text-8xl w-3/5 font-outline-2 hover:font-outline-4 mb-40">
+            <h1 className="text-8xl w-3/5 font-outline-2 hover:font-outline-4 mb-40 ">
               Landing Page
             </h1>
           </div>
@@ -24,7 +24,7 @@ export default function Home() {
           >
             <Card
               title="Sign in Page"
-              link="/SignInPage"
+              link="/pages/SignInPage"
               image="/images/sign-in-page.png"
               description="A simple sign in page with functionality"
             />
