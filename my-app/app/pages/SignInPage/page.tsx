@@ -1,31 +1,41 @@
-// app/pages/SignInPage/page.tsx
-
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation"; // Change to 'next/navigation'
+import { useSearchParams } from "next/navigation"; // Import useSearchParams
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter(); // Initialize useRouter to handle redirection
+  const searchParams = useSearchParams(); // Use useSearchParams to access query params
+
+  // Check if the query parameter 'userNotFound' is present
+  const userNotFound = searchParams.get("userNotFound");
+
+  useEffect(() => {
+    if (userNotFound) {
+      alert("User not found. Please sign up.");
+    }
+  }, [userNotFound]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const result = await signIn("credentials", {
-      redirect: false, // Set to false to handle redirection manually
+      redirect: false,
       email,
       password,
     });
 
     if (result?.error) {
-      // Handle error (show error message, etc.)
       console.error(result.error);
+      // Redirect to sign-in with the query parameter if user not found
+      if (result.error === "User not found") {
+        window.location.href = "/SignInPage?userNotFound=true"; // Add query param
+      }
     } else {
       // If sign-in is successful, redirect to confirmation page
-      router.push("/confirm"); // Change to the correct route for your confirmation page
+      window.location.href = "/pages/confirmPage";
     }
   };
 
@@ -75,7 +85,6 @@ export default function SignInPage() {
         <p className="mt-auto">Disclaimer: make a mock email and name.</p>
       </div>
 
-      {/* Container for social sign-in buttons */}
       <div className="flex items-center mt-4">
         <button
           onClick={() => signIn("google")}

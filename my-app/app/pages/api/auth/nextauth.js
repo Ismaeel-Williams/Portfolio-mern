@@ -1,7 +1,8 @@
-// app/api/auth/[...nextauth].ts
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
+import CredentialsProvider from "next-auth/providers/credentials";
+import clientPromise from "@/lib/mongodb";
 
 export const authOptions = {
   providers: [
@@ -13,14 +14,42 @@ export const authOptions = {
       clientId: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "your-email@example.com",
+        },
+        password: { label: "Password", type: "password" },
+      },
+      authorize: async (credentials) => {
+        const client = await clientPromise;
+        const db = client.db("portfolio");
+        const user = await db
+          .collection("users")
+          .findOne({ email: credentials.email });
+
+        if (!user) {
+          throw new Error("UserNotFound"); // Custom error for user not found
+        }
+
+        if (user.password !== credentials.password) {
+          throw new Error("IncorrectPassword"); // Custom error for incorrect password
+        }
+
+        return { id: user._id, email: user.email };
+      },
+    }),
   ],
   pages: {
-    signIn: "/signIn", // Define the path to your sign-in page
-    // Optional: you can also define custom pages for errors, etc.
+    signIn: "/SignInPage",
+    error: "/SignInPage", // Redirect to the same sign-in page on error
   },
   callbacks: {
     async redirect({ url, baseUrl }) {
-      return baseUrl + "/confirm"; // Redirect to confirmation page after sign in
+      return baseUrl + "/pages/confirmPage";
     },
   },
 };
