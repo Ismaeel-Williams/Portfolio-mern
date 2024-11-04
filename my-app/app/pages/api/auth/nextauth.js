@@ -48,7 +48,7 @@ export const authOptions = {
     error: "/SignInPage", // Redirect to the same sign-in page on error
   },
   callbacks: {
-    async redirect({ url, baseUrl }) {
+    async redirect({ baseUrl }) {
       return baseUrl + "/pages/confirmPage";
     },
   },

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Card = ({
   image = "/images/PlaceHolder.png",
@@ -12,7 +13,7 @@ const Card = ({
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <Link href={link}>
-        <img
+        <Image
           className="w-full h-48 rounded-t-lg object-cover"
           src={image}
           alt={title}

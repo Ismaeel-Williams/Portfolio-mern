@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
-import User from "@/app/models/user"; // Adjust the import path
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 
 export default function SignUpPage() {

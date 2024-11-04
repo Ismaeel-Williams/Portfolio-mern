@@ -1,23 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useSearchParams } from "next/navigation"; // Import useSearchParams
+import { useRouter } from "next/navigation"; // Import useRouter
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const searchParams = useSearchParams(); // Use useSearchParams to access query params
+  const router = useRouter(); // Use useRouter to access the router object
 
   // Check if the query parameter 'userNotFound' is present
-  const userNotFound = searchParams.get("userNotFound");
+  // const userNotFound = query.userNotFound;
 
-  useEffect(() => {
-    if (userNotFound) {
-      alert("User not found. Please sign up.");
-    }
-  }, [userNotFound]);
+  // useEffect(() => {
+  //   if (userNotFound) {
+  //     alert("User not found. Please sign up.");
+  //   }
+  // }, [userNotFound]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,11 +31,11 @@ export default function SignInPage() {
       console.error(result.error);
       // Redirect to sign-in with the query parameter if user not found
       if (result.error === "User not found") {
-        window.location.href = "/SignInPage?userNotFound=true"; // Add query param
+        router.push("/SignInPage?userNotFound=true"); // Use router to push to the new path
       }
     } else {
       // If sign-in is successful, redirect to confirmation page
-      window.location.href = "/pages/confirmPage";
+      router.push("/confirmPage"); // Adjusted path
     }
   };
 
@@ -77,7 +77,7 @@ export default function SignInPage() {
           </button>
         </form>
 
-        <Link href="/pages/SignUpPage" passHref>
+        <Link href="/SignUpPage" passHref>
           <button className="bg-[#384B70] rounded-md px-5 py-2 mb-4 w-full">
             Sign Up
           </button>

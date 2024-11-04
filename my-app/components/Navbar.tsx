@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -46,7 +47,7 @@ export default function Navbar() {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img
+              <Image
                 className="h-8 w-auto bg-gray-600"
                 src="/images/l47-transparent.png"
                 alt="Your Company"
@@ -117,7 +118,7 @@ export default function Navbar() {
                 >
                   <span className="absolute -inset-1.5"></span>
                   <span className="sr-only">Open user menu</span>
-                  <img
+                  <Image
                     className="h-8 w-8 rounded-full"
                     src="/images/Isma-eel-profile.jpg"
                     alt="Profile Picture"
