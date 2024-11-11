@@ -22,7 +22,7 @@ export default function SignUpPage() {
     };
 
     try {
-      const response = await fetch("/api/auth/signup", {
+      const response = await fetch("/pages/api/auth/signup", {
         // API endpoint to sign up
         method: "POST",
         headers: {
