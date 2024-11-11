@@ -17,6 +17,8 @@ const Card = ({
           className="w-full h-48 rounded-t-lg object-cover"
           src={image}
           alt={title}
+          width={400}
+          height={200}
         />
       </Link>
       <div className="p-5">

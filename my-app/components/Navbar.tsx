@@ -51,6 +51,8 @@ export default function Navbar() {
                 className="h-8 w-auto bg-gray-600"
                 src="/images/l47-transparent.png"
                 alt="Your Company"
+                height={32}
+                width={32}
               />
             </div>
             <div className="hidden sm:ml-6 sm:block">
@@ -122,6 +124,8 @@ export default function Navbar() {
                     className="h-8 w-8 rounded-full"
                     src="/images/Isma-eel-profile.jpg"
                     alt="Profile Picture"
+                    height={32}
+                    width={32}
                   />
                 </button>
               </div>

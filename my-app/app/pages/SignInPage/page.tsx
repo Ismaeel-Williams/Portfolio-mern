@@ -77,7 +77,7 @@ export default function SignInPage() {
           </button>
         </form>
 
-        <Link href="/SignUpPage" passHref>
+        <Link href="/pages/SignUpPage" passHref>
           <button className="bg-[#384B70] rounded-md px-5 py-2 mb-4 w-full">
             Sign Up
           </button>
