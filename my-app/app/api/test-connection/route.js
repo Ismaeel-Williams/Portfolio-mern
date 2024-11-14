@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"; // Import NextResponse
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-export async function GET(req) {
+export async function GET() {
   let client;
 
   try {
