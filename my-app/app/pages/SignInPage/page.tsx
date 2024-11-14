@@ -85,16 +85,16 @@ export default function SignInPage() {
         <p className="mt-auto">Disclaimer: make a mock email and name.</p>
       </div>
 
-      <div className="flex items-center mt-4">
+      <div className="flex items-center mt-4 mb-32 w-[32rem] space-x-2">
         <button
           onClick={() => signIn("google")}
-          className="bg-[#384B70] rounded-md px-5 py-2"
+          className="bg-[#384B70] rounded-md px-5 py-2 flex-1"
         >
           Sign in with Google
         </button>
         <button
           onClick={() => signIn("facebook")}
-          className="bg-[#384B70] rounded-md px-5 py-2"
+          className="bg-[#384B70] rounded-md px-5 py-2 flex-1"
         >
           Sign in with Facebook
         </button>

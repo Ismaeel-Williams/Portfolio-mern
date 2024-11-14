@@ -11,7 +11,7 @@ export default function Home() {
               Landing Page
             </h1>
           </div>
-          <div className="relative text-[#FCFAEE] w-full pb-40 pt-20">
+          <div className="relative text-[#FCFAEE] w-full pb-36 pt-20">
             <p className="text-center">web stack developer student</p>
           </div>
         </div>
