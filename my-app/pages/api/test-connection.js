@@ -17,6 +17,11 @@ const handler = async (req, res) => {
     client.close();
   } catch (error) {
     res.status(500).json({ message: "Failed to connect to MongoDB", error });
+  } finally {
+    // Ensure the connection is only closed if it was successfully opened
+    if (client && client.isConnected()) {
+      await client.close();
+    }
   }
 };
 
