@@ -22,8 +22,7 @@ export default function SignUpPage() {
     };
 
     try {
-      const response = await fetch("/pages/api/auth/signup", {
-        // API endpoint to sign up
+      const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,15 +30,22 @@ export default function SignUpPage() {
         body: JSON.stringify(newUser),
       });
 
-      if (!response.ok) {
-        throw new Error("User already exists or invalid data");
+      if (response.status === 409) {
+        throw new Error("User already exists");
       }
 
-      // Redirect to confirmation page after successful sign-up
-      router.push("/confirmPage");
-    } catch (error) {
+      if (!response.ok) {
+        throw new Error("Failed to sign up. Please try again.");
+      }
+
+      router.push("/pages/confirmPage");
+    } catch (error: unknown) {
       console.error(error);
-      setError("Failed to sign up. Please try again.");
+      if (error instanceof Error) {
+        setError(error.message); // Show the specific error message
+      } else {
+        setError("An unexpected error occurred.");
+      }
     }
   };
 
