@@ -13,15 +13,36 @@ const footer = () => {
             <p>Smile :) its good for you</p>
           </div>
           <div className="space-x-6">
-            <a href="https://profile.indeed.com/?hl=en_ZA&co=ZA&from=gnav-menu-viewjob">
+            <a
+              href="https://profile.indeed.com/?hl=en_ZA&co=ZA&from=gnav-menu-viewjob"
+              className="inline-block hover:translate-y-2 transition-transform"
+            >
               Indeed
             </a>
-            <a href="https://github.com/Ismaeel-Williams">GitHub</a>
-            <a href="https://www.linkedin.com/in/isma-eel-williams-93872b263/">
+            <a
+              href="https://github.com/Ismaeel-Williams"
+              className="inline-block hover:translate-y-2 transition-transform"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/isma-eel-williams-93872b263/"
+              className="inline-block hover:translate-y-2 transition-transform"
+            >
               LinkedIn
             </a>
-            <a href="mailto:IsmaeelWilliams26@gmail.com">My@email</a>
-            <a href="tel:0813647766">My Phone</a>
+            <a
+              href="mailto:IsmaeelWilliams26@gmail.com"
+              className="inline-block hover:translate-y-2 transition-transform"
+            >
+              My@email
+            </a>
+            <a
+              href="tel:0813647766"
+              className="inline-block hover:translate-y-2 transition-transform"
+            >
+              My Phone
+            </a>
           </div>
         </div>
       </div>

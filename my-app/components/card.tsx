@@ -11,7 +11,7 @@ const Card = ({
   showButton = true,
 }) => {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:border-black hover:border-2">
       <Link href={link}>
         <Image
           className="w-full h-48 rounded-t-lg object-cover"
