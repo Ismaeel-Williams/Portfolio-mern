@@ -2,40 +2,39 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation"; // Import useRouter
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter(); // Use useRouter to access the router object
-
-  // Check if the query parameter 'userNotFound' is present
-  // const userNotFound = query.userNotFound;
-
-  // useEffect(() => {
-  //   if (userNotFound) {
-  //     alert("User not found. Please sign up.");
-  //   }
-  // }, [userNotFound]);
+  const [error, setError] = useState(""); // State for error handling
+  const [loading, setLoading] = useState(false); // Loading state for form submission
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const result = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+    setLoading(true);
+    try {
+      // Send sign-in request to your custom API route
+      const response = await fetch("/api/auth/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    if (result?.error) {
-      console.error(result.error);
-      // Redirect to sign-in with the query parameter if user not found
-      if (result.error === "User not found") {
-        router.push("/SignInPage?userNotFound=true"); // Use router to push to the new path
+      const result = await response.json();
+
+      if (response.ok) {
+        // If sign-in is successful, redirect to dashboard or home page
+        window.location.href = "/dashboard"; // Redirect to dashboard or another page
+      } else {
+        // Handle error if sign-in fails
+        setError(result.message || "An error occurred during sign-in.");
       }
-    } else {
-      // If sign-in is successful, redirect to confirmation page
-      router.push("/confirmPage"); // Adjusted path
+    } catch (error) {
+      setError("An error occurred during sign-in.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -69,11 +68,13 @@ export default function SignInPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {error && <p className="text-red-600">{error}</p>}
           <button
             type="submit"
             className="bg-[#384B70] rounded-md px-5 py-2 mt-4 w-full"
+            disabled={loading}
           >
-            Sign In
+            {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
@@ -86,16 +87,10 @@ export default function SignInPage() {
       </div>
 
       <div className="flex items-center mt-4 mb-32 w-[32rem] space-x-2">
-        <button
-          onClick={() => signIn("google")}
-          className="bg-[#384B70] rounded-md px-5 py-2 flex-1"
-        >
+        <button className="bg-[#384B70] rounded-md px-5 py-2 flex-1">
           Sign in with Google
         </button>
-        <button
-          onClick={() => signIn("facebook")}
-          className="bg-[#384B70] rounded-md px-5 py-2 flex-1"
-        >
+        <button className="bg-[#384B70] rounded-md px-5 py-2 flex-1">
           Sign in with Facebook
         </button>
       </div>
