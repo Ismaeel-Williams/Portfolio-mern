@@ -46,15 +46,6 @@ export default function Navbar() {
             </button>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <Image
-                className="h-8 w-auto bg-gray-600"
-                src="/images/l47-transparent.png"
-                alt="Your Company"
-                height={32}
-                width={32}
-              />
-            </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 <a
@@ -68,7 +59,7 @@ export default function Navbar() {
                   href="#footer"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
-                  Team
+                  ContactMe
                 </a>
                 <a
                   href="/#Projects"

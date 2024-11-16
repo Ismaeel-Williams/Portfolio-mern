@@ -9,15 +9,19 @@ const footer = () => {
       <div className="content-center h-80 text-center mb-20">
         <div>
           <div className="py-10">
-            <h1 className="text-6xl py-10">My social links</h1>
+            <h1 className="text-6xl py-10">My contact links</h1>
             <p>Smile :) its good for you</p>
           </div>
           <div className="space-x-6">
-            <a href="#">FaceBook</a>
-            <a href="#">GitHub</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">My@email</a>
-            <a href="#">My Phone</a>
+            <a href="https://profile.indeed.com/?hl=en_ZA&co=ZA&from=gnav-menu-viewjob">
+              Indeed
+            </a>
+            <a href="https://github.com/Ismaeel-Williams">GitHub</a>
+            <a href="https://www.linkedin.com/in/isma-eel-williams-93872b263/">
+              LinkedIn
+            </a>
+            <a href="mailto:IsmaeelWilliams26@gmail.com">My@email</a>
+            <a href="tel:0813647766">My Phone</a>
           </div>
         </div>
       </div>
