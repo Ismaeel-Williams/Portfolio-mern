@@ -4,15 +4,18 @@ import { useState } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 
 export default function SignUpPage() {
-  const router = useRouter(); // Initialize useRouter for navigation
+  const router = useRouter();
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // State for error handling
+  const [error, setError] = useState("");
+  const [loading, setloading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setloading(true);
 
     const newUser = {
       name,
@@ -46,6 +49,8 @@ export default function SignUpPage() {
       } else {
         setError("An unexpected error occurred.");
       }
+    } finally {
+      setloading(false);
     }
   };
 
@@ -101,8 +106,9 @@ export default function SignUpPage() {
           <button
             type="submit"
             className="bg-[#384B70] rounded-md px-5 py-2 mt-8"
+            disabled={loading}
           >
-            Sign Up
+            {loading ? "Singing Up..." : "Sign Up"}
           </button>
         </form>
         {error && <p className="text-red-500">{error}</p>}{" "}
