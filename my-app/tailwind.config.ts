@@ -15,6 +15,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "stars-img": "url('/images/stars.jpg')",
+        "astronaut-img": "url('/images/astronaut.png')",
       },
       colors: {
         background: "var(--background)",

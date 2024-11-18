@@ -26,7 +26,7 @@ export default function SignInPage() {
 
       if (response.ok) {
         // If sign-in is successful, redirect to dashboard or home page
-        window.location.href = "/dashboard"; // Redirect to dashboard or another page
+        window.location.href = "/pages/dashboard"; // Redirect to dashboard or another page
       } else {
         // Handle error if sign-in fails
         setError(result.message || "An error occurred during sign-in.");
