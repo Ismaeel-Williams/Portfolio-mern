@@ -1,11 +1,13 @@
 import Card from "@/components/card";
 import Link from "next/link";
+import Particles from "../components/particles";
 
 export default function Home() {
   return (
     <>
       <section className="bg-[#507687] font-semibold">
         <div className="relative bg-stars-img bg-cover bg-center min-h-[100vh] bg-fixed">
+          <Particles id="particles" />
           <div className="absolute inset-0 bg-black opacity-0"></div>
           <div className={`relative text-[#FCFAEE] w-full px-10 py-10`}>
             <h1 className="text-8xl w-3/5 font-outline-2 hover:font-outline-4 mb-20">
