@@ -4,6 +4,10 @@
     "color": {
       "value": "#384B70"
     },
+    "fullScreen": {
+      "enable": true,
+      "zIndex": 1
+    },
     "image": "",
     "position": "",
     "repeat": "",
@@ -16,7 +20,7 @@
       "color": {
         "value": "#fff"
       },
-      "opacity": 1
+      "opacity": 0.5
     },
     "enable": false
   },
@@ -25,7 +29,7 @@
   "delay": 0,
   "fullScreen": {
     "enable": true,
-    "zIndex": -1
+    "zIndex": 0
   },
   "detectRetina": true,
   "duration": 0,

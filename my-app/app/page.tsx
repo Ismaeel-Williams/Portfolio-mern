@@ -1,23 +1,26 @@
 import Card from "@/components/card";
 import Link from "next/link";
-import Particles from "../components/particles";
+import Particles from "@/components/particles";
+
 export default function Home() {
   return (
     <>
-      <section className="bg-[#507687] font-semibold">
-        <div className="relative bg-stars-img bg-cover bg-center min-h-[100vh] bg-fixed">
-          <Particles />
-          <div className="absolute inset-0 bg-black opacity-0"></div>
-          <div className={`relative text-[#FCFAEE] w-full px-10 py-10`}>
+      <section className="bg-[#384B70] font-semibold relative -z-20">
+        {/* Particles only for this section */}
+        <Particles />
+
+        <div className="relative min-h-[100vh] bg-fixed z-10">
+          <div className="relative text-[#FCFAEE] w-full px-10 py-10 z-20">
             <h1 className="text-8xl w-3/5 font-outline-2 hover:font-outline-4 mb-20">
               My Stellar Portfolio
             </h1>
           </div>
-          <div className="relative text-[#FCFAEE] w-full py-24">
-            <p className="text-center">web stack developer student</p>
+          <div className="relative text-[#FCFAEE] w-full py-24 z-20">
+            <p className="text-center">Web stack developer student</p>
           </div>
         </div>
       </section>
+
       <section className="bg-[#507687] flex justify-center px-4 py-8">
         <div className="flex flex-wrap justify-center gap-4 w-full max-w-7xl">
           <div
