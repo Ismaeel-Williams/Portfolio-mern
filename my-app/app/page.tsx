@@ -9,9 +9,9 @@ export default function Home() {
         {/* Particles only for this section */}
         <Particles />
 
-        <div className="relative min-h-[100vh] bg-fixed z-10">
-          <div className="relative text-[#FCFAEE] w-full px-10 py-10 z-20">
-            <h1 className="text-8xl w-3/5 font-outline-2 hover:font-outline-4 mb-20">
+        <div className="relative min-h-[100vh] bg-fixed">
+          <div className="relative text-[#FCFAEE] w-full px-10 py-10">
+            <h1 className="text-7xl w-2/5 font-outline-2  mb-20">
               My Stellar Portfolio
             </h1>
           </div>
