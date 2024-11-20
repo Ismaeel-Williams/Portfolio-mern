@@ -19,7 +19,6 @@
     "particles": "^0.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-particles": "^2.12.2",
     "react-tsparticles": "^2.12.2",
     "tsparticles": "^3.6.0",
     "typed.js": "^2.1.0"
