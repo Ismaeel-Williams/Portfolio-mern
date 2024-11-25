@@ -115,8 +115,8 @@ export default function Navbar() {
                     className="h-8 w-8 rounded-full"
                     src="/images/Isma-eel-profile.jpg"
                     alt="Profile Picture"
-                    height={32}
-                    width={32}
+                    height={100}
+                    width={100}
                   />
                 </button>
               </div>
@@ -161,7 +161,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu, show/hide based on menu state. */}
       <div className="sm:hidden" id="mobile-menu">
         <div className="hidden space-y-1 px-2 pb-3 pt-2" id="dropdown-items">
           <a

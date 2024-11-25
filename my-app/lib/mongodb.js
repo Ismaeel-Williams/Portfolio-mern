@@ -1,24 +1,45 @@
-// lib/mongodb.js
 import { MongoClient } from "mongodb";
 
-const uri = process.env.MONGODB_URI; // Environment variable for MongoDB connection string
+let client;
+let clientPromise;
 
-if (!uri) {
-  throw new Error("Please add your MongoDB URI to .env.local");
+if (!global._mongoClientPromise) {
+  client = new MongoClient(process.env.MONGODB_URI);
+  global._mongoClientPromise = client.connect();
 }
-
-// Create a MongoClient instance using the URI
-const client = new MongoClient(uri);
+clientPromise = global._mongoClientPromise;
 
 async function connectToDatabase() {
-  try {
-    await client.connect(); // Connect to MongoDB
-    console.log("Connected successfully to MongoDB!");
-    return client; // Return the client to use for database operations
-  } catch (error) {
-    console.error("Failed to connect to MongoDB", error);
-    throw error; // Throw the error if connection fails
-  }
+  const client = await clientPromise;
+  return client.db(process.env.DB_NAME); // Ensure DB_NAME is set in your .env file
 }
 
-export default connectToDatabase;
+// Fetch users
+export async function getUsers(filter = {}) {
+  const db = await connectToDatabase();
+  return db.collection("users").find(filter).toArray();
+}
+
+// Fetch a single user
+export async function getUser(filter = {}) {
+  const db = await connectToDatabase();
+  return db.collection("users").findOne(filter);
+}
+
+// Delete a user
+export async function deleteUser(filter) {
+  const db = await connectToDatabase();
+  return db.collection("users").deleteOne(filter);
+}
+
+// Update a user
+export async function updateUser(filter, updateData) {
+  const db = await connectToDatabase();
+  return db.collection("users").updateOne(filter, { $set: updateData });
+}
+
+// Create a user
+export async function createUser(userData) {
+  const db = await connectToDatabase();
+  return db.collection("users").insertOne(userData);
+}

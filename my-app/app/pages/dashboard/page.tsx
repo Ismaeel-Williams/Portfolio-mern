@@ -1,11 +1,13 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 export default function DashboardPage() {
-  const [activeIndex, setActiveIndex] = useState(0); // Track the active game index
-  const gameRefs = useRef<(HTMLDivElement | null)[]>([]); // Refs for each game card
+  const [showImage, setShowImage] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const gameRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const games = ["Game 1", "Game 2", "Game 3"]; // Replace with your game data
+  const games = ["Game 1", "Game 2", "Game 3"];
 
   const scroll = (direction: "left" | "right") => {
     if (direction === "left" && activeIndex > 0) {
@@ -16,7 +18,6 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    // Automatically scroll to the highlighted game
     if (gameRefs.current[activeIndex]) {
       gameRefs.current[activeIndex]?.scrollIntoView({
         behavior: "smooth",
@@ -28,19 +29,25 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-[#FCFAEE] flex flex-col items-center">
-      {/* Main Content */}
       <main className="w-full max-w-7xl my-8 px-4 flex flex-col space-y-8">
-        {/* Welcome Section */}
-        <section className="bg-[#507687] text-[#FCFAEE] p-6 rounded-lg text-center">
+        <section className="bg-[#507687] text-[#FCFAEE] p-6 rounded-lg text-center relative">
           <h2 className="text-2xl font-bold">Welcome, John Doe!</h2>
           <p className="text-lg mt-2">
-            Here&#39;s an overview of your dashboard. Stay productive!
+            Welcome! We&#39;ve tidied up the dashboard—just don&#39;t look under
+            the rug.
           </p>
+          {showImage && (
+            <Image
+              className="rounded-full h-32 w-32 border-[#507687] border-solid border-2 absolute left-1/2 transform -translate-x-1/2"
+              src="/images/PlaceHolder.png"
+              alt="User Profile Picture"
+              width={100}
+              height={100}
+            />
+          )}
         </section>
 
-        {/* Statistics Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Stats Card */}
           <div className="bg-[#FCFAEE] border border-[#507687] p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4">User Stats</h3>
             <ul className="space-y-2 text-[#384B70]">
@@ -53,11 +60,15 @@ export default function DashboardPage() {
             </ul>
           </div>
 
-          {/* Quick Links */}
           <div className="bg-[#FCFAEE] border border-[#507687] p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-semibold mb-4">
+              Updating? Don&#39;t worry, we&#39;ve packed snacks!
+            </h3>
             <div className="flex flex-col space-y-4">
-              <button className="bg-[#507687] text-[#FCFAEE] px-4 py-2 rounded-md hover:bg-[#384B70]">
+              <button
+                className="bg-[#507687] text-[#FCFAEE] px-4 py-2 rounded-md hover:bg-[#384B70]"
+                onClick={() => setShowImage(!showImage)}
+              >
                 View Profile
               </button>
               <button className="bg-[#507687] text-[#FCFAEE] px-4 py-2 rounded-md hover:bg-[#384B70]">
@@ -72,9 +83,7 @@ export default function DashboardPage() {
 
         <section className="bg-[#FCFAEE] border border-[#507687] p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-semibold mb-4">Activities</h3>
-          {/* Horizontal Scrollable Section */}
           <div className="relative">
-            {/* Scrollable Container */}
             <div className="flex overflow-x-scroll no-scrollbar space-x-4 p-4">
               {games.map((game, index) => (
                 <div
@@ -90,7 +99,6 @@ export default function DashboardPage() {
                 </div>
               ))}
             </div>
-            {/* Arrow Buttons */}
             <button
               className="absolute top-1/2 left-2 -translate-y-1/2 bg-[#507687] text-[#FCFAEE] p-2 rounded-full hover:bg-[#384B70] focus:outline-none"
               onClick={() => scroll("left")}

@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <>
       <section className="bg-[#384B70] font-semibold relative -z-20">
-        {/* Particles only for this section */}
         <Particles />
 
         <div className="relative min-h-[100vh] bg-fixed">
