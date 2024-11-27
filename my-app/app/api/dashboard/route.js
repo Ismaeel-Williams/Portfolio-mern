@@ -1,11 +1,18 @@
-import React from "react";
+import { NextResponse } from "next/server";
 
-const route = () => {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
-};
+export async function GET() {
+  return NextResponse.json({
+    message: "GET request received at /api/dashboard",
+  });
+}
 
-export default route;
+export async function POST(request) {
+  try {
+    const body = await request.json(); // Using request here
+    console.log("POST request body:", body);
+    return NextResponse.json({ message: "POST request received", data: body });
+  } catch (error) {
+    console.error("Error handling POST request:", error);
+    return NextResponse.error();
+  }
+}
