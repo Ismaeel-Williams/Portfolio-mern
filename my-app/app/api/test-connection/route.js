@@ -7,10 +7,7 @@ export async function GET() {
   let client;
 
   try {
-    client = await MongoClient.connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    client = new MongoClient(MONGODB_URI);
 
     const db = client.db();
     const collections = await db.collections();

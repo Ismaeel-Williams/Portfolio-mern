@@ -13,7 +13,7 @@
     "@tsparticles/engine": "^3.6.0",
     "@tsparticles/react": "^3.0.0",
     "bcrypt": "^5.1.1",
-    "mongodb": "6.9",
+    "mongodb": "^6.11.0",
     "next": "^15.0.1",
     "next-auth": "^4.24.10",
     "particles": "^0.1.4",
