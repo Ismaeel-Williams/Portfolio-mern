@@ -17,6 +17,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col min-h-screen">
         <header className="sticky top-0 z-10">
+          <link
+            rel="icon"
+            href="/images/icons8-star-48-favicon.png"
+            type="image/x-icon"
+          />
           <Navbar />
         </header>
         <main className="flex-grow">{children}</main>

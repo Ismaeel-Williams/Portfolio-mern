@@ -18,7 +18,6 @@ export async function GET() {
       { status: 200 }
     );
   } catch (error) {
-    // Return JSON response with status 500
     return NextResponse.json(
       { message: "Failed to connect to MongoDB", error },
       { status: 500 }

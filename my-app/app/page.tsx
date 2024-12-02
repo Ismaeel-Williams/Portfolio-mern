@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[rgb(80,118,135)] text-white p-4">
+      <section id="Information" className="bg-[rgb(80,118,135)] text-white p-4">
         <div className="p-4 border-2 border-black bg-astronaut-img bg-no-repeat bg-right bg-[length:90%_110%]">
           <h1 className="text-xl font-bold text-center underline">
             Information
