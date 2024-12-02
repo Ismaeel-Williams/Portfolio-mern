@@ -4,10 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
@@ -62,49 +60,45 @@ export default function Navbar() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                <a
+                <Link
                   href="/"
                   className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                 >
                   Home
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#footer"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   ContactMe
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/#Projects"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   Projects
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/pages/test-connection"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   Test DB
-                </a>
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Profile dropdown */}
+          {/* Profile link */}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <div className="relative ml-3">
-              <button>
-                <Link href="/">
-                  <Image
-                    className="h-8 w-8 rounded-full"
-                    src="/images/Isma-eel-profile.jpg"
-                    alt="Profile Picture"
-                    height={100}
-                    width={100}
-                  />
-                </Link>
-              </button>
-            </div>
+            <Link href="/pages/developerPage">
+              <Image
+                className="h-8 w-8 rounded-full"
+                src="/images/Isma-eel-profile.jpg"
+                alt="Profile Picture"
+                height={100}
+                width={100}
+              />
+            </Link>
           </div>
         </div>
       </div>
@@ -113,30 +107,30 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="sm:hidden" id="mobile-menu">
           <div className="space-y-1 px-2 pb-3 pt-2">
-            <a
+            <Link
               href="#"
               className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
             >
               Home
-            </a>
-            <a
+            </Link>
+            <Link
               href="#nformation"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
-              about me
-            </a>
-            <a
+              About Me
+            </Link>
+            <Link
               href="#Projects"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               Projects
-            </a>
-            <a
+            </Link>
+            <Link
               href="#footer"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
-              Contact me
-            </a>
+              Contact Me
+            </Link>
           </div>
         </div>
       )}
