@@ -15,7 +15,7 @@ export default function Home() {
             </h1>
           </div>
           <div className="relative text-[#FCFAEE] w-full py-24 z-20">
-            <p className="text-center">Web stack developer student</p>
+            <p className="text-center">junior full stack web developer</p>
           </div>
         </div>
       </section>
