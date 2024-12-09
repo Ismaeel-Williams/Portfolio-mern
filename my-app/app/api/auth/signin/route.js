@@ -1,8 +1,10 @@
 import { MongoClient } from "mongodb";
-import bcrypt from "bcrypt"; // Ensure bcrypt is imported
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const MONGODB_DB_NAME = process.env.MONGODB_DB_NAME;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 if (!MONGODB_URI) {
   throw new Error("MONGODB_URI is not defined in the environment variables");
@@ -12,6 +14,15 @@ if (!MONGODB_DB_NAME) {
   throw new Error(
     "MONGODB_DB_NAME is not defined in the environment variables"
   );
+}
+
+if (!JWT_SECRET) {
+  console.log("Generated Token:", token);
+
+  console.log("JWT_SECRET:", process.env.JWT_SECRET);
+  console.log("JWT_SECRET type:", typeof process.env.JWT_SECRET);
+
+  throw new Error("JWT_SECRET is not defined in the environment variables");
 }
 
 let cachedClient = null;
@@ -46,7 +57,6 @@ export const POST = async (req) => {
     const user = await usersCollection.findOne({ email });
 
     if (!user) {
-      // If no user is found
       return new Response(
         JSON.stringify({
           message: "Email not found. Please sign up if you haven't already.",
@@ -66,13 +76,29 @@ export const POST = async (req) => {
       );
     }
 
-    return new Response(
+    // Generate a JWT
+    const token = jwt.sign(
+      { email: user.email, name: user.name },
+      JWT_SECRET,
+      { expiresIn: "1h" } // Token valid for 1 hour
+    );
+
+    // Set the token as an HTTP-only cookie
+    const response = new Response(
       JSON.stringify({
         message: "Sign-in successful",
         user: { name: user.name, email: user.email },
       }),
       { status: 200 }
     );
+    response.headers.set(
+      "Set-Cookie",
+      `token=${token}; HttpOnly; Path=/; Max-Age=3600; Secure=${
+        process.env.NODE_ENV === "production"
+      }`
+    );
+
+    return response;
   } catch (error) {
     if (error instanceof MongoClient.MongoError) {
       return new Response(

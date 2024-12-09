@@ -29,10 +29,10 @@ export default function SignInPage() {
         window.location.href = "/pages/dashboard"; // Redirect to dashboard or another page
       } else {
         // Handle error if sign-in fails
-        setError(result.message || "An error occurred during sign-in.");
+        setError(result.message || "Unable to sign in. Please try again.");
       }
     } catch (error) {
-      setError("An error occurred during sign-in.");
+      setError("Network error. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -51,6 +51,7 @@ export default function SignInPage() {
               Email:
             </label>
             <input
+              id="email"
               type="email"
               className="p-1 rounded ml-2 text-black flex-1"
               value={email}
@@ -62,6 +63,7 @@ export default function SignInPage() {
               Password:
             </label>
             <input
+              id="password"
               type="password"
               className="p-1 rounded ml-2 text-black flex-1"
               value={password}
@@ -87,10 +89,16 @@ export default function SignInPage() {
       </div>
 
       <div className="flex items-center mt-4 mb-32 w-[32rem] space-x-2">
-        <button className="bg-[#384B70] rounded-md px-5 py-2 flex-1">
+        <button
+          disabled
+          className="bg-[#384B70] rounded-md px-5 py-2 flex-1 opacity-50 cursor-not-allowed"
+        >
           Sign in with Google
         </button>
-        <button className="bg-[#384B70] rounded-md px-5 py-2 flex-1">
+        <button
+          disabled
+          className="bg-[#384B70] rounded-md px-5 py-2 flex-1 opacity-50 cursor-not-allowed"
+        >
           Sign in with Facebook
         </button>
       </div>
