@@ -30,17 +30,20 @@ const ProfilePage = () => {
               services.
             </p>
           </div>
-          <div className="flex-1 mt-6 sm:mt-0">
+          <div className="flex-1 mt-6 sm:mt-0 relative w-full max-w-xs h-80 overflow-hidden rounded-lg shadow-md border-4 border-red-500">
             <Image
-              src="/images/PlaceHolder.png"
+              src="/images/profile-photo.jpg"
               alt="Profile Image"
-              width={300}
-              height={300}
-              className="w-full max-w-xs rounded-lg shadow-md border-4 border-red-500"
+              layout="fill" /* Ensures the image fills the container */
+              objectFit="cover" /* Maintains aspect ratio while filling */
+              objectPosition="center top" /* Adjusts the image's position vertically */
+              className="rounded-lg"
+              style={{
+                objectPosition: "70% 20%",
+              }}
             />
           </div>
         </div>
-        {/* Bottom border with the same width as the container */}
         <div className="border-b-4 border-red-500 mt-6"></div>
       </div>
     </section>
