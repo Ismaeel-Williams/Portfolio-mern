@@ -15,4 +15,114 @@
   .font-outline-4 {
     -webkit-text-stroke: 4px black;
   }
+
+  .text-shadow {
+    text-shadow: 3px 0px #da0463;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.drum {
+  @apply outline-none border-4 border-[#404B69] text-5xl font-[Arvo] font-extrabold text-[#DA0463] rounded-lg m-2 w-full md:w-36 h-auto flex items-center justify-center bg-white;
+  transition: opacity 0.1s;
+}
+
+.drum:active {
+  @apply opacity-50;
+}
+
+.pressed {
+  @apply shadow-lg opacity-50;
+}
+
+.set {
+  @apply mt-10 mx-auto flex flex-wrap justify-center gap-4;
+}
+
+/* Button backgrounds */
+.w {
+  background-image: url("/project2/images/tom1.png");
+}
+
+.a {
+  background-image: url("/project2/images/tom2.png");
+}
+
+.s {
+  background-image: url("/project2/images/tom3.png");
+}
+
+.d {
+  background-image: url("/project2/images/tom4.png");
+}
+
+.j {
+  background-image: url("/project2/images/snare.png");
+}
+
+.k {
+  background-image: url("/project2/images/crash.png");
+}
+
+.l {
+  background-image: url("/project2/images/kick.png");
+}
+
+/* Ensures cards will grow to match the height of the tallest card in a row */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Makes sure content is spaced evenly */
+  flex-grow: 1;
+  min-height: 320px; /* Adjust this height as needed */
+  max-width: 300px; /* Ensures cards don't grow too wide */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card .description {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.card button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: auto; /* Pushes button to the bottom */
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-height: auto; /* Allows the card to grow based on content */
+  }
 }

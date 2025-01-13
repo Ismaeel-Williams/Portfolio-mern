@@ -7,10 +7,9 @@ export default function Home() {
     <>
       <section className="bg-[#384B70] font-semibold relative -z-20">
         <Particles />
-
         <div className="relative min-h-[100vh] bg-fixed">
           <div className="relative text-[#FCFAEE] w-full px-10 py-10">
-            <h1 className="text-7xl w-2/5 font-outline-2  mb-20">
+            <h1 className="text-7xl w-2/5 font-outline-2 mb-20">
               My Stellar Portfolio
             </h1>
           </div>
@@ -21,22 +20,25 @@ export default function Home() {
       </section>
 
       <section className="bg-[#507687] flex justify-center px-4 py-8">
-        <div className="flex flex-wrap justify-center gap-4 w-full max-w-7xl">
-          <div
-            id="Projects"
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full max-w-7xl min-h-screen place-items-center"
-          >
+        <div className="w-full max-w-7xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-4 lg:gap-6 xl:gap-8">
             <Card
               title="Sign in Page"
               link="/pages/SignInPage"
               image="/images/sign-in-page.png"
               description="A simple sign in page with functionality"
             />
-            <Card />
+            <Card
+              title="Drum Kit"
+              link="/pages/project2/drumPage"
+              description="A simple drum kit with sounds. This project was made in my Udemy course. The credit is to Angela Yu in the bootcamp on Udemy."
+            />
             <Card />
             <Card />
           </div>
-          <p className="font-bold">More Pages Coming Soon ...</p>
+          <p className="font-bold text-center mt-6">
+            More Pages Coming Soon ...
+          </p>
         </div>
       </section>
 

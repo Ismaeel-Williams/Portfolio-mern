@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -9,9 +11,22 @@ const Card = ({
   link = "#",
   buttonText = "Visit Project",
   showButton = true,
+}: {
+  image?: string;
+  title?: string;
+  description?: string;
+  link?: string;
+  buttonText?: string;
+  showButton?: boolean;
 }) => {
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+
+  const handleDescriptionToggle = () => {
+    setIsDescriptionExpanded((prev) => !prev);
+  };
+
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:border-black hover:border-2">
+    <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:border-black hover:border-2 flex flex-col">
       <Link href={link}>
         <Image
           className="w-full h-48 rounded-t-lg object-cover"
@@ -21,20 +36,30 @@ const Card = ({
           height={200}
         />
       </Link>
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-grow">
         <Link href={link}>
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {title}
           </h5>
         </Link>
-        {description && (
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {description}
-          </p>
+        <p
+          className={`mb-3 font-normal text-gray-700 dark:text-gray-400 ${
+            isDescriptionExpanded ? "" : "line-clamp-3"
+          }`}
+        >
+          {description}
+        </p>
+        {description.length > 150 && !isDescriptionExpanded && (
+          <button
+            className="text-blue-500 mt-2"
+            onClick={handleDescriptionToggle}
+          >
+            Read more
+          </button>
         )}
         {showButton && (
           <Link href={link}>
-            <div className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <div className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-4">
               {buttonText}
               <svg
                 className="rtl:rotate-180 w-3.5 h-3.5 ml-2"
