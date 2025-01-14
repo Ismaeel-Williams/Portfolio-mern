@@ -34,12 +34,11 @@ const ProfilePage = () => {
             <Image
               src="/images/profile-photo.jpg"
               alt="Profile Image"
-              layout="fill" /* Ensures the image fills the container */
-              objectFit="cover" /* Maintains aspect ratio while filling */
-              objectPosition="center top" /* Adjusts the image's position vertically */
-              className="rounded-lg"
+              fill /* Replaces layout="fill", ensures the image fills the container */
+              className="rounded-lg object-cover" /* Replaces objectFit="cover" */
               style={{
-                objectPosition: "70% 20%",
+                objectPosition:
+                  "70% 20%" /* Adjusts cropping to show specific parts of the image */,
               }}
             />
           </div>
