@@ -78,7 +78,7 @@ const DrumKitPage: React.FC = () => {
         <button
           className={`w drum ${
             activeKey === "w" ? "pressed" : ""
-          } p-10 w-10 sm:w-1/4 lg:w-1/5`}
+          } p-10 w-10 max-sm:w-1/3 sm:w-1/3 lg:w-1/5`}
           onClick={() => handleClick("w")}
         >
           w
@@ -86,7 +86,7 @@ const DrumKitPage: React.FC = () => {
         <button
           className={`a drum ${
             activeKey === "a" ? "pressed" : ""
-          }p-10 w-10 sm:w-1/4 lg:w-1/5`}
+          }p-10 w-10 max-sm:w-1/3 sm:w-1/3 lg:w-1/5`}
           onClick={() => handleClick("a")}
         >
           a
@@ -94,7 +94,7 @@ const DrumKitPage: React.FC = () => {
         <button
           className={`s drum ${
             activeKey === "s" ? "pressed" : ""
-          } p-10 w-10 sm:w-1/4 lg:w-1/5`}
+          } p-10 w-10 max-sm:w-1/3 sm:w-1/3 lg:w-1/5`}
           onClick={() => handleClick("s")}
         >
           s
@@ -102,7 +102,7 @@ const DrumKitPage: React.FC = () => {
         <button
           className={`d drum ${
             activeKey === "d" ? "pressed" : ""
-          }p-10 w-10 sm:w-1/4 lg:w-1/5`}
+          }p-10 w-10 max-sm:w-1/3 sm:w-1/3 lg:w-1/5`}
           onClick={() => handleClick("d")}
         >
           d
@@ -110,7 +110,7 @@ const DrumKitPage: React.FC = () => {
         <button
           className={`j drum ${
             activeKey === "j" ? "pressed" : ""
-          } p-10 w-10 sm:w-1/4`}
+          } p-10 w-10 max-sm:w-1/3 sm:w-1/3`}
           onClick={() => handleClick("j")}
         >
           j
@@ -118,7 +118,7 @@ const DrumKitPage: React.FC = () => {
         <button
           className={`k drum ${
             activeKey === "k" ? "pressed" : ""
-          }p-10 w-10 sm:w-1/4`}
+          }p-10 w-10 max-sm:w-1/3 sm:w-1/3`}
           onClick={() => handleClick("k")}
         >
           k
@@ -126,7 +126,7 @@ const DrumKitPage: React.FC = () => {
         <button
           className={`l drum ${
             activeKey === "l" ? "pressed" : ""
-          }p-10 w-10 sm:w-1/4`}
+          }p-10 w-10 max-sm:w-1/2 sm:w-1/3`}
           onClick={() => handleClick("l")}
         >
           l
