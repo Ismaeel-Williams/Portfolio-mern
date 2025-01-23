@@ -31,6 +31,7 @@ export default function Home() {
             <Card
               title="Drum Kit"
               link="/pages/project2/drumPage"
+              image="/project2/images/drum-kit-stock-photo.png"
               description="A simple drum kit with sounds. This project was made in my Udemy course. The credit is to Angela Yu in the bootcamp on Udemy."
             />
             <Card />

@@ -84,10 +84,10 @@
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Makes sure content is spaced evenly */
+  justify-content: space-between;
   flex-grow: 1;
-  min-height: 320px; /* Adjust this height as needed */
-  max-width: 300px; /* Ensures cards don't grow too wide */
+  min-height: 320px;
+  max-width: 300px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
