@@ -46,31 +46,31 @@
 
 /* Button backgrounds */
 .w {
-  background-image: url("/project2/images/tom1.png");
+  background-image: url("/game1/images/tom1.png");
 }
 
 .a {
-  background-image: url("/project2/images/tom2.png");
+  background-image: url("/game1/images/tom2.png");
 }
 
 .s {
-  background-image: url("/project2/images/tom3.png");
+  background-image: url("/game1/images/tom3.png");
 }
 
 .d {
-  background-image: url("/project2/images/tom4.png");
+  background-image: url("/game1/images/tom4.png");
 }
 
 .j {
-  background-image: url("/project2/images/snare.png");
+  background-image: url("/game1/images/snare.png");
 }
 
 .k {
-  background-image: url("/project2/images/crash.png");
+  background-image: url("/game1/images/crash.png");
 }
 
 .l {
-  background-image: url("/project2/images/kick.png");
+  background-image: url("/game1/images/kick.png");
 }
 
 /* Ensures cards will grow to match the height of the tallest card in a row */

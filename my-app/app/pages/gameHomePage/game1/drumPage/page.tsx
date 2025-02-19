@@ -10,25 +10,25 @@ const DrumKitPage: React.FC = () => {
 
     switch (key) {
       case "w":
-        sound = new Audio("/project2/sounds/tom-1.mp3");
+        sound = new Audio("/game1/sounds/tom-1.mp3");
         break;
       case "a":
-        sound = new Audio("/project2/sounds/tom-2.mp3");
+        sound = new Audio("/game1/sounds/tom-2.mp3");
         break;
       case "s":
-        sound = new Audio("/project2/sounds/tom-3.mp3");
+        sound = new Audio("/game1/sounds/tom-3.mp3");
         break;
       case "d":
-        sound = new Audio("/project2/sounds/tom-4.mp3");
+        sound = new Audio("/game1/sounds/tom-4.mp3");
         break;
       case "j":
-        sound = new Audio("/project2/sounds/snare.mp3");
+        sound = new Audio("/game1/sounds/snare.mp3");
         break;
       case "k":
-        sound = new Audio("/project2/sounds/crash.mp3");
+        sound = new Audio("/game1/sounds/crash.mp3");
         break;
       case "l":
-        sound = new Audio("/project2/sounds/kick-bass.mp3");
+        sound = new Audio("/game1/sounds/kick-bass.mp3");
         break;
       default:
         console.log(`No sound found for ${key}`);
