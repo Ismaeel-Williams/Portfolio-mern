@@ -10,7 +10,7 @@ export default function ConfirmPage() {
           now log in. Press the &#39;Sign In&#39; button below to access your
           account.
         </p>
-        <Link href="/pages/SignInPage" passHref>
+        <Link href="/pages/signInPage" passHref>
           <button className="bg-[#384B70] rounded-md px-5 py-2 mt-10 w-full">
             Sign In
           </button>
